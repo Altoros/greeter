@@ -2,9 +2,9 @@ require 'sinatra'
 require 'yaml'
 require 'net/http'
 
-config    = YAML.load_file(File.expand_path('../config.yml', __FILE__))
+config    = YAML.load_file(ENV['CONFIG_FILE'])
 upstreams = config['upstreams']
 
 get '/' do
-  Net::HTTP.get(URI("http://#{upstreams.sample}"))
+  "Router says: '#{Net::HTTP.get(URI("http://#{upstreams.sample}"))}'\n"
 end

@@ -4,5 +4,5 @@ require 'securerandom'
 uuid = SecureRandom.uuid
 
 get '/' do
-  "Greetings from #{uuid} server"
+  "Greetings from #{uuid} upstream"
 end
